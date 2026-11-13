@@ -1,0 +1,56 @@
+{
+  "name": "unnits/unnisign-sdk",
+  "description": "PHP client SDK for the UnniSign signing platform.",
+  "type": "library",
+  "license": "MIT",
+  "require": {
+    "php": "^8.3",
+    "guzzlehttp/guzzle": "^7.9"
+  },
+  "require-dev": {
+    "carthage-software/mago": "1.59.0",
+    "pestphp/pest": "^3.8",
+    "phpstan/phpstan": "^2.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "UnniSign\\": "src/"
+    }
+  },
+  "archive": {
+    "exclude": [
+      "/vendor",
+      "/tests",
+      "/.phpstan",
+      "/.phpunit.cache",
+      "/.mago",
+      "/.gitattributes",
+      "/composer.lock",
+      "/mago.toml",
+      "/phpstan.neon",
+      "/phpunit.xml"
+    ]
+  },
+  "scripts": {
+    "lint": "mago lint",
+    "format": "mago fmt",
+    "format:check": "mago fmt --check",
+    "analyse": "phpstan analyse --memory-limit=512M",
+    "test": "pest",
+    "check": [
+      "@format:check",
+      "@lint",
+      "@analyse",
+      "@test"
+    ]
+  },
+  "config": {
+    "sort-packages": true,
+    "allow-plugins": {
+      "pestphp/pest-plugin": true
+    },
+    "platform": {
+      "php": "8.3.0"
+    }
+  }
+}

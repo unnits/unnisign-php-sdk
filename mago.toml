@@ -1,0 +1,17 @@
+#:schema https://mago.carthage.software/1.59.0/schema.json
+version = "1.59.0"
+php-version = "8.3"
+
+[source]
+paths = ["src", "tests"]
+includes = ["vendor"]
+
+[formatter]
+print-width = 120
+
+[linter.rules]
+# The request DTO exposes the endpoint's named options as one cohesive input.
+excessive-parameter-list = { exclude = ["src/CreateSigningProcedure.php"] }
+# Test credentials are deliberately synthetic, not production secrets.
+no-literal-password = { exclude = ["tests/"] }
+sensitive-parameter = { exclude = ["tests/"] }
